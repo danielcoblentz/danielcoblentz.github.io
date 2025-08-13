@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--import files + libraries-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/experience_details/exp.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@latest/devicon.min.css">
+    <title>Berkeley Lab | ML Intern</title>
+</head>
+<body> 
+    <!-- Keep same header nav bar as home page -->
+    <header id="header">
+        <nav class="navbar">
+            <a href="/index.html" class="nav-branding">
+                <img src="/images/Portfolio_logo.png" alt="Logo" class="nav-logo">
+            </a>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/index.html#about" class="nav-link">About me</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/index.html#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/index.html#projects" class="nav-link">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a href="images\Daniel_Coblentz_resume.pdf" target="_blank" class="nav-link">Resume</a>
+                </li>
+                <div class="dropdown-footer">
+                    <hr>
+                    <div class="footer-text">
+                        <a href="mailto:Dan@thecoblentzs.com" class="footer-link">Email</a>
+                        <a href="https://github.com/danielcoblentz" class="footer-link">GitHub</a>
+                        <a href="https://www.linkedin.com/in/danielcoblentz/" class="footer-link">LinkedIn</a>
+                    </div>
+                </div>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+   <!-- Define the left side nav bar -->
+<nav class="experience-nav" role="navigation" aria-label="Contents">
+    <span role="heading" aria-level="2" class="experience-nav__heading">Contents</span>
+    <ul class="experience-nav__list">
+        <li><a class="experience-nav__link" href="#overview">Overview</a></li>
+        <li><a class="experience-nav__link" href="#Late-fusion">Late fusion</a></li>
+        <li><a class="experience-nav__link" href="#technical-implementation">Technical Implementation</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#query-optimization">Query Optimization</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#Front-end">Website Updates</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#collaboration">Cross-Functional Collaboration</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#design-documents">Design Documents</a></li>
+        
+        <li><a class="experience-nav__link" href="#PyTorch">PyTorch</a></li>
+    </ul>
+</nav>
+
+    <!-- Main content for info -->
+    <section class="tech-doc-content">
+        
+        <!-- Overview Section -->
+        <section id="overview" class="fade-section experience-section">
+            <!-- title -->
+            <h2>Berkeley Lawrence National Lab</h2>
+            <!-- image -->
+            <img src="/images/14_BL_Alt_Stack_Rev.png" alt="TA" class="ta-image"> <!--replace-->
+            <!-- categories -->
+            <div class="categories-container">
+                <div class="categories-left">
+                    <h4>Role</h4>
+                    <p>Machine Learning Research Intern</p>
+                    <h4>Skills</h4>
+                    <p>Multimodal Machine Learning, Deep Learning, NLP</p>
+                </div>
+                <div class="categories-right">
+                    <h4>Timeline</h4>
+                    <p>May 2025 – August 2025</p>
+
+                    <h4>Tools</h4>
+                    <p>PyTorch</p>
+                    <p>scikit-learn</p>
+                    <p>Pandas</p>
+                    <p>Regex/NLTK</p>
+                    
+                </div>
+            </div>
+
+            <div class="experience-description">
+                <h3>Overview</h3>
+                <p>
+                    The Applied Mathematics & Computational Research Division <a href="https://crd.lbl.gov/divisions/amcr/">(AMCR)</a> 
+                    at Lawrence Berkeley National Laboratory is a research and development division that focuses on mathematical modeling, algorithm design, and high-performance software implementation.
+                </p>
+                <p>
+                    This department takes on a number of projects each year that researchers collaboratively work on. 
+                    My team is working in collaboration with the department of energy (DOE) in developing machine learning models for predicting obstructive sleep apnea and related comorbidities to classify patients into subgroups based on their past medical records.
+                </p>
+                <p>
+                    As a machine learning research intern I was the primary developer for  exploring various  late fusion methods as part of a data fusion multimodal pipeline. My final report can be found 
+                    <a href="https://drive.google.com/drive/home?dmr=1&ec=wgc-drive-globalnav-goto">here!</a>
+                </p>
+            </div>
+
+             <!-- Late fusion -->
+        <section id="Late-fusion" class="experience-description">
+            <h3>Late fusion</h3>
+            <p>
+                <a href="https://www.geeksforgeeks.org/deep-learning/early-fusion-vs-late-fusion-in-multimodal-data-processing/#understanding-late-fusion"> Late fusion</a>also known as decision-level fusion—is a strategy for integrating information from different types of data. Instead of feeding all features into a single model from the start, we train two separate machine learning models, each specialized for its own data modality. In our case, one model was designed for structured data (such as demographic information, lab results, and medication histories), and the other for unstructured text (clinical notes).
+            </p>
+
+            <p>Each model learns to represent its modality independently, capturing patterns that are unique to that data type. At the fusion stage, the outputs (embeddings or predictions) from both models are combined to create a joint multimodal representation. This allows the system to leverage the strengths of each modality while avoiding the interference that can occur when mixing raw features too early.</p>
+        </section>
+
+        <!-- Technical Implementation -->
+        <section id="technical-implementation" class="experience-description">
+            <h3>Technical Implementation</h3>
+            <p>
+                Building the interactive mapping system involved multiple technical steps. Initially, datasets were fragmented and contained inconsistencies, including missing values, duplicate entries, and inconsistent naming conventions. 
+                All the data was initially in CSV format, so I converted it into dataframes using Python with Pandas and NumPy libraries to preprocess, clean, transform, and merge multiple datasets from Google Sheets. 
+                I then designed and implemented automated SQL queries to continuously feed real-time updates into <a href="https://lookerstudio.google.com/visualization" target="_blank">Looker Studio</a> dashboards, 
+                removing the need for manual data refreshes.
+            </p>
+        </section>
+
+        <!-- Query Optimization -->
+        <section id="query-optimization" class="experience-subsection">
+            <h4>Query Optimization</h4>
+            <p>
+                During data analysis, I discovered that existing queries took a long time to run, often exceeding two minutes due to multiple join operations combined with embedded conditional logic and large unfiltered datasets.
+                To address this issue, I rewrote over 15 queries, simplifying their logic and removing unnecessary computations. As a result, average query execution time was dramatically reduced from approximately three minutes to just 22 seconds. 
+            </p>
+        </section>
+
+        <!-- Front-end -->
+        <section id="Front-end" class="experience-subsection">
+            <h4>Website Updates</h4>
+            <p>
+                With the data analysis completed, I moved onto the website updates, collaborating with the lead front-end developer to redesign two pages: the Projects and Donation pages.
+                This involved creating mock-up designs and gathering relevant metrics. After approval of the designs, I updated metrics, text, and images, and began implementing plans to embed the mapping tool directly into the Projects page.
+            </p>
+        </section>
+
+        <!-- Cross-Functional Collaboration -->
+        <section id="collaboration" class="experience-subsection">
+            <h4>Cross-Functional Collaboration</h4>
+            <p>
+                Teamwork was another significant aspect of my internship. I regularly collaborated with data analysts to identify inefficiencies and inconsistencies within our data pipelines.
+                Together, we developed validation rules and automated checks to prevent recurring data-quality issues, such as incorrect labeling of critical metrics like malaria rates.
+                Additionally, I worked closely with project leads and field teams to refine questionnaires, gather their perspectives, and collect direct feedback about user experience and metrics.
+                This feedback directly guided my UI design choices, ensuring the final product was both practical and intuitive.
+            </p>
+        </section>
+
+        <!-- Design Documents -->
+        <section id="design-documents" class="experience-subsection">
+            <h4>Design Documents</h4>
+            <p>
+                Throughout the project, I created technical specification documents that detailed the goals, requirements, trade-offs, and scalability considerations for the mapping tool. 
+                These documents compared potential tools such as Looker Studio and <a href="https://help.tableau.com/current/pro/desktop/en-us/getstarted_buildmanual_ex1basic.htm" target="_blank">Tableau</a>, 
+                clearly outlining why Google Data Studio was chosen, including considerations of cost, ease of integration, and scalability benchmarks. 
+                My documentation provided clear guidance for future developers and analysts, ensuring maintainability and effective knowledge transfer.
+            </p>
+        </section>
+
+        <!-- Final Deployment & Testing -->
+        <section id="PyTorch" class="experience-description">
+            <h3>PyTorch</h3>
+            <p>
+                Pyrotch developed by facebook(META) AI research is a fully featured framework for building deep learning models, which is a subtype of machine learning that's commonly used in applications like image recognition and language processing and translation. 
+                PyTorch is a Python package that provides two high-level features:
+
+               <li> 1) Tensor computation (like NumPy) with strong GPU acceleration</li>
+               <li> 2) Deep neural networks built on a tape-based autograd system</li></p>
+
+                <p>Another PyTorch supports dynamic computational graphs, enabling network behavior to be changed at runtime. This provides a major flexibility advantage over the majority of machine learning frameworks, which require neural networks to be defined as static objects before runtime.</p>
+
+                <p>In my free time I enjoy building personal projects with some freedom to decide how to get to the final outcome. And the freedom to use other frameworks and libraries this usually leads back to SKlearn and tensorflow.</p>
+        </section>
+    </section>
+
+
+            
+<!--Footer content----------------------------------------------------->
+<footer class="site-footer">
+    <p>&copy; 2024 Daniel Coblentz. All rights reserved.</p>
+    <div class="footer-icons">
+        <a href="mailto:Dan@thecoblentzs.com" target="_blank"><i class="ri-mail-line"></i></a>
+        <a href="https://github.com/danielcoblentz" target="_blank"><i class="ri-github-line"></i></a>
+        <a href="https://www.linkedin.com/in/danielcoblentz/" target="_blank"><i class="devicon-linkedin-plain"></i></a>
+    </div>
+</footer>
+    <!-- Link to JS for header functions -->
+    <script src="/experience_details/exp.js"></script>
+    <script src="/script.js"></script>
+</body>
+</html>
