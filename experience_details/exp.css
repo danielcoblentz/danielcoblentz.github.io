@@ -183,6 +183,24 @@ border-left: 2px solid #fff;
     margin: 0 auto 125px auto; 
     border-radius: 8px; 
 }
+
+/* New rule set for research/experience images */
+.exp-image {
+    width: 100%;
+    max-width: 930px;
+    display: block;
+    margin: 40px auto 60px auto; /* adjust these top/bottom values as needed */
+    border-radius: 8px;
+}
+
+/* Responsive rule for portrait orientation */
+@media (orientation: portrait) {
+    .exp-image {
+        max-width: 100%;
+        margin-bottom: 40px; /* tweak separately for mobile */
+    }
+}
+
 /*media queries for other devices (mobile, tablet, desktop and large screens)------------*/
 /* mobile devices */
 @media (max-width: 767px) {

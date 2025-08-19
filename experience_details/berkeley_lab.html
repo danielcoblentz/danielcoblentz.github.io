@@ -125,13 +125,11 @@
 
             <p>
             I implemented a <a href="https://apxml.com/courses/intro-to-multimodal-ai/chapter-3-techniques-integrating-modalities/late-fusion">late fusion</a> architecture that trains separate specialized encoders for each modality before combining their outputs. This approach allows each model to learn optimal representations for its
-             respective data modality without interference from the other modality during initial training. The structured data encoder uses <a href="https://arxiv.org/pdf/1908.07442">TabNet's</a> sequential attention mechanism, while the text encoder leverages <a href="https://arxiv.org/pdf/1904.05342">ClinicalBERT's </a>domain-specific language understanding.
-             
+             respective data modality without interference from the other modalities during initial training. The structured data encoder uses <a href="https://arxiv.org/pdf/1908.07442">TabNet's</a> sequential attention mechanism, while the text encoder leverages <a href="https://arxiv.org/pdf/1904.05342">ClinicalBERT's</a> domain-specific language understanding.
             </p>
             <p>
-                <img src="/images/project_architecture.png" alt="TA" class="ta-image">
+                <img src="/images/project_architecture.png" alt="TA" class="exp-image">
             </p>
-
             <p>
                 The fusion stage concatenates 128-dimensional embeddings from each encoder, creating a unified 256-dimensional latent space representation. Embeddings are dense numerical vectors that compress complex, high-dimensional information into compact 
                 representations where semantically similar data points map closer together in the vector space. This joint embedding captures both the quantitative precision of structured data and the qualitative richness of clinical narratives, enabling enhanced patient profiling than either modality alone.
@@ -205,7 +203,7 @@
 
 
 <section id="experiments" class="experience-description">
-    <h4>Experimental methods</h4>
+    <h3>Experimental methods</h3>
     <p>
         I designed a comprehensive evaluation framework to assess both single-modality baselines and multimodal performance across multiple tasks. The experimental methodology included exploration of various architectures and alternative fusion strategies to evaluate the multimodal approach.
     </p>
@@ -227,7 +225,7 @@
     </p>
     <p>
         
-        <img src="/images/KAN.png" alt="TA" class="ta-image"> 
+        <img src="/images/KAN.png" alt="TA" class="exp-image"> 
     </p>
     
     
@@ -253,18 +251,19 @@
 
         
 
-  <section id="evaluation" class="experience-subsection">
-    <h4>Results & Evaluation</h4>
+  <section id="results" class="experience-description">
+    <h3>Results & Evaluation</h3>
     <p>
         The evaluation framework assessed both clustering quality and classification performance to validate the learned patient representations. Clustering metrics measured how well the pipeline discovered meaningful patient subgroups, while classification tasks evaluated predictive utility for clinical outcomes.
     </p>
     <p>
         For clustering evaluation, I used UMAP to reduce the dimentions of each represntation into a 2D latent space plot and computed Silhouette Scores to measure cluster cohesion and separation, Adjusted Rand Index (ARI) to assess clustering agreement with clinical expectations, and Davies-Bouldin Index (DBI) to evaluate cluster compactness. These metrics provided comprehensive assessment of subgroup discovery quality.
-        <img src="/images/LBNL_results_table.png" alt="TA" class="ta-image">
+        <img src="/images/LBNL_results_table.png" alt="classification_table" class="exp-image">
+        
     </p>
     <p>
-        Classification performance was measured using Area Under the Receiver Operating Characteristic curve (AUROC) for binary outcomes related to OSA complications and comorbidities. This metric effectively handles class imbalance common in clinical datasets and provides clinically interpretable performance measures.
-        <img src="/images/CLASSIFICATION.png" alt="TA" class="ta-image">
+        Classification performance was measured using Area Under the Receiver Operating Characteristic curve (AUROC) for binary outcomes related to OSA complications and comorbidities with three different models Random Forest(RF), Logistic regression (LR) and KANS. This metric effectively handles class imbalance common in clinical datasets and provides clinically interpretable performance measures.
+        <img src="/images/classification_table.png" alt="results_table" class="exp-image">
         
     <p>
         The results demonstrated clear benefits from multimodal fusion. The combined approach achieved a 55% improvement in clustering quality over the best single-modality baseline and maintained competitive classification performance while discovering more clinically meaningful patient subgroups.
@@ -273,8 +272,8 @@
 
         
 <!--future work -->
-<section id="future-work" class="experience-subsection">
-    <h4>Future Work</h4>
+<section id="future-work" class="experience-description">
+    <h3>Future Work</h3>
     <p>
         This multimodal clinical phenotyping pipeline opens several promising research directions 
         that could further enhance patient stratification and clinical decision-making capabilities.
