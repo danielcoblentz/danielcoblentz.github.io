@@ -849,84 +849,127 @@ a {
     }
 }
 /* Projects section styles -------------------------------------------------------------------------------------------------*/
-.section-header {
-    width: 100%; 
-    text-align: left; 
-    padding-left: 20px; 
-    position: relative; 
-}
+/* ---------------- Projects Section ---------------- */
 
-.projects-section h2 {
-    font-size: 2.6rem; 
-    color: #cdd6f4; 
-    margin-bottom: 10px; 
-    padding-left: 40px;
-}
-
-.section-divider {
-    position: absolute; 
-    margin-top: -35px;
-    left: 265px;
-    width:17%; 
-    height: 2px; 
-    background-color: #cdd6f4; 
-    opacity: 0.2; 
-}
 .projects-section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    padding: 10px;
-    background-color: #101218; 
-    padding-right: 80px;
-    width: 90%;
+    padding: 40px 20px;
 }
 
-.project {
-    background-color: #2a2a3d;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px); 
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
+/* Header + divider aligned with Experience */
+.section-header {
+    width: 100%;
+    text-align: left;
+    padding-left: 20px;
     position: relative;
-    transition: transform 0.3s ease; 
-    
-}
-.github-icon {
-    position: absolute;
-    top: 10px;  
-    right: 10px;  
-    font-size: 30px;  
-    color: #cdd6f4;  
-    cursor: pointer;  
-}
-.project:hover {
-    transform: scale(1.05); 
-}
-
-.project h3 {
-    font-size: 1.5rem;
-    color: #cdd6f4;
     margin-bottom: 20px;
 }
 
+.projects-section h2 {
+    font-size: 2.6rem;
+    color: #cdd6f4;
+    margin-bottom: 10px;
+    padding-left: 30px; /* match Experience */
+}
+
+.section-divider {
+    position: absolute;
+    margin-top: -35px;
+    left: 305px; /* match Experience */
+    width: 17%;
+    height: 2px;
+    background-color: #cdd6f4;
+    opacity: 0.2;
+}
+
+/* Projects grid: 2 cols x 3 rows */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px 30px; /* row, col gap */
+    width: 85%;
+    margin: auto;
+}
+
+/* Each project card */
+.project {
+    display: flex;
+    align-items: flex-start;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 12px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Image */
+.project-image img {
+    width: 160px;
+    border-radius: 6px;
+    transition: transform 0.3s ease;
+}
+
+/* Content beside image */
+.project-content {
+    flex: 1;
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project h3 {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: #cdd6f4;
+}
+
 .project p {
-    font-size: 1.15rem;
-    color: #cdd6f4;
     flex-grow: 1;
-    padding-bottom: 40px;
-    padding-top: 20px;
-}
-.project-footer {
-    font-size: 1rem;
+    margin-bottom: 10px;
+    font-size: 0.9rem;
     color: #cdd6f4;
-    padding-top: 10px;
+    max-width: 400px; /* keeps text from spilling past image height */
 }
-#projects {
-    margin-bottom: 100px;
+
+/* Tool pills */
+.project-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tool-pill {
+    background: #2a2a3d;
+    border-radius: 20px;
+    padding: 4px 10px;
+    font-size: 0.75rem;
+    color: #cdd6f4;
+}
+
+/* Arrow link */
+.project-link {
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+    font-size: 1.4rem;
+    color: #cdd6f4;
+    transition: transform 0.2s ease;
+}
+
+.project-link:hover {
+    transform: translateX(4px);
+}
+
+/* Hover behavior */
+.projects-section:hover .project {
+    opacity: 0.5; /* dim all by default */
+}
+
+.project:hover {
+    background-color: #1c1c28;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    opacity: 1 !important; /* highlight only hovered */
+    z-index: 2;
 }
 .about-section {
     padding-bottom: 400px;
@@ -1061,6 +1104,9 @@ section {
     align-items: center;
     text-align: center;
     transition: opacity 0.5s ease-out;
+}
+#projects {
+    margin-bottom: 100px;
 }
 .faded {
     opacity: 0;

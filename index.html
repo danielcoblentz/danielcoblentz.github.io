@@ -181,85 +181,142 @@
         </div>
         
 </section>
+</section>
+<!-- Project section + content ----------------------------------------------------->
+<section id="projects" class="projects-section">
+  <div class="section-header">
+    <h2>/ Projects</h2>
+    <hr class="section-divider">
+  </div>
 
-     <!--Project section + content----------------------------------------------------->
-    <section id="projects" class="projects-section">
-        <div class="section-header">
-            <h2>/ Projects</h2>
-            <hr class="section-divider">
-        </div>
-        <!--UC Berkeley AI hackathon-->
-        <div class="project">
-            <a href="https://github.com/danielcoblentz/Snap2Save" target="_blank">
-                <i class="ri-github-fill github-icon"></i>
-            </a>
-            <h3>Snap2Save | UC Berkeley AI Hackathon</h3>
-            <p>A disaster-response platform that converts a single smartphone photo into an interactive 3D building model using depth estimation and mesh reconstruction, and calculates risk-aware rescue routes with real-time hazard overlays from various APIs (Google Maps and NASA FIRMS).</p>
-            <div class="project-footer">PyTorch, Open3D, Three.js, Flask, Folium</div>
-        </div>
-        <!--recommendation system-->
-        <div class="project">
-            <a href="https://github.com/danielcoblentz/IBM-Machine-Learning-Capstone" target="_blank">
-                <i class="ri-github-fill github-icon"></i>
-            </a>
-            <h3>Course Recommendation System</h3>
-            <p>
-                A web-based course recommendation system built with Streamlit. It suggests relevant courses using content-based (TF-IDF + BoW), clustering (K-Means + PCA), and collaborative filtering (KNN, NMF, neural embeddings), all wrapped in an interactive interface for real-time personalization.
-            </p>
-            <div class="project-footer">
-                Python, Streamlit, scikit-learn, Pandas, Heroku
-            </div>
-        </div>
-        <!--Map router project-->
-        <div class="project">
-            <a href="https://github.com/danielcoblentz/mapRouter" target="_blank">
-                <i class="ri-github-fill github-icon"></i>
-            </a>
-            <h3>mapRouter</h3>
-            <p>
-                An optimized pathfinding tool built in Java that extends Dijkstra’s algorithm with A* heuristics, lazy distance resets, early termination for single-target queries, and a 4-ary heap priority queue to improve routing efficiency on large graphs.
-            </p>
-            <div class="project-footer">
-                Java, Dijkstra, A* Search, Algorithm Optimization
-            </div>
-        </div>
-        
-         <!--Competitive programming-->
-        <div class="project">
-            <a href="https://github.com/danielcoblentz/Competitive-programming" target="_blank">
-                <i class="ri-github-fill github-icon"></i>
-            </a>
-            <h3>CCSE Programming Competition</h3>
-            <p>A set of algorithmic problems solved during the CCSE Eastern Conference Programming Competition. Showcases efficient solutions using recursion, sorting, graphs, and dynamic programming under time constraints.</p>
-            <div class="project-footer">Python, C++</div>
-        </div>
+  <!-- Projects Grid -->
+  <div class="projects-grid">
 
-        <!--AWS Hackathon-->
-        <div class="project">
-            <a href="https://github.com/danielcoblentz/AWS-Lambda-Hackathon" target="_blank">
-                <i class="ri-github-fill github-icon"></i>
-            </a>
-            <h3>Smart Recipe Scanner | AWS Hackathon</h3>
-            <p>
-                A serverless expense-tracking app that uses AWS Lambda and S3 triggers to process uploaded receipts in real time. Extracts key fields with OCR + NLP, stores results in DynamoDB, and generates financial summaries through a lightweight web dashboard.
-            </p>
-            <div class="project-footer">
-                AWS Lambda, S3, DynamoDB, OCR, NLP, Python, API Gateway
-            </div>
+    <!-- Snap2Save -->
+    <div class="project">
+      <div class="project-image">
+        <img src="/images/projects_img/snap.png" alt="Snap2Save preview">
+      </div>
+      <div class="project-content">
+        <h3>Snap2Save | UC Berkeley AI Hackathon</h3>
+        <p>A disaster-response app that turns a single photo into a 3D building model and maps safe rescue routes with real-time hazard data.</p>
+        <div class="project-tools">
+          <span class="tool-pill">PyTorch</span>
+          <span class="tool-pill">Open3D</span>
+          <span class="tool-pill">Three.js</span>
+          <span class="tool-pill">Flask</span>
+          <span class="tool-pill">Folium</span>
         </div>
-        
+        <a href="https://github.com/danielcoblentz/Snap2Save" target="_blank" class="project-link">
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
 
-        <!--VGG16 CNN project-->
-        <div class="project">
-            <a href="https://github.com/danielcoblentz/Image-classification-using-VGG16" target="_blank">
-                <i class="ri-github-fill github-icon"></i>
-            </a>
-            <h3>Hand Gesture Recognition with CNN</h3>
-            <p>Implemented a convolutional neural network in Python using Keras to classify and identify hand gestures from a custom dataset. Applied data preprocessing, model training, and evaluation processes, achieving a 99.07% accuracy rate and maintaining an average loss of 0.0141.</p>
-            <div class="project-footer">Python, TensorFlow, Keras, Google Colab</div>
+    <!-- Course Recommendation System -->
+    <div class="project">
+      <div class="project-image">
+        <img src="/images/projects_img/recc.png" alt="Recommendation System preview">
+      </div>
+      <div class="project-content">
+        <h3>Course Recommendation System</h3>
+        <p>A Streamlit app suggesting courses using TF-IDF, clustering, and collaborative filtering for personalized learning paths.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Python</span>
+          <span class="tool-pill">Streamlit</span>
+          <span class="tool-pill">scikit-learn</span>
+          <span class="tool-pill">Pandas</span>
+          <span class="tool-pill">Heroku</span>
         </div>
+        <a href="https://github.com/danielcoblentz/IBM-Machine-Learning-Capstone" target="_blank" class="project-link">
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
 
-    </section>
+    <!-- mapRouter -->
+    <div class="project">
+      <div class="project-image">
+        <img src="/images/projects_img/map.png" alt="mapRouter preview">
+      </div>
+      <div class="project-content">
+        <h3>mapRouter</h3>
+        <p>A Java routing tool that speeds up Dijkstra’s algorithm with A heuristics, lazy resets, and a 4-ary heap for large graphs.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Java</span>
+          <span class="tool-pill">Dijkstra</span>
+          <span class="tool-pill">A*</span>
+          <span class="tool-pill">Algorithms</span>
+        </div>
+        <a href="https://github.com/danielcoblentz/mapRouter" target="_blank" class="project-link">
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- CCSE Competition -->
+    <div class="project">
+      <div class="project-image">
+        <img src="/images/projects_img/CCSE.png" alt="CCSE Competition preview">
+      </div>
+      <div class="project-content">
+        <h3>CCSE Programming Competition</h3>
+        <p>A set of algorithmic problems solved under time constraints. Covers recursion, sorting, graphs, and dynamic programming challenges.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Python</span>
+          <span class="tool-pill">C++</span>
+        </div>
+        <a href="https://github.com/danielcoblentz/Competitive-programming" target="_blank" class="project-link">
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Smart Recipe Scanner -->
+    <div class="project">
+      <div class="project-image">
+        <img src="/images/projects_img/AWS.png" alt="AWS Hackathon preview">
+      </div>
+      <div class="project-content">
+        <h3>Smart Recipe Scanner | AWS Hackathon</h3>
+        <p>A serverless app that scans receipts with OCR/NLP, stores results in DynamoDB, and generates real-time expense summaries</p>
+        <div class="project-tools">
+          <span class="tool-pill">AWS Lambda</span>
+          <span class="tool-pill">S3</span>
+          <span class="tool-pill">DynamoDB</span>
+          <span class="tool-pill">OCR</span>
+          <span class="tool-pill">NLP</span>
+        </div>
+        <a href="https://github.com/danielcoblentz/AWS-Lambda-Hackathon" target="_blank" class="project-link">
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- CNN Gesture Recognition -->
+    <div class="project">
+      <div class="project-image">
+        <img src="/images/projects_img/AI.png" alt="Hand Gesture Recognition preview">
+      </div>
+      <div class="project-content">
+        <h3>Hand Gesture Recognition with CNN</h3>
+        <p>A VGG16-based CNN trained on a custom dataset to classify hand gestures, achieving 99% accuracy in evaluation.</p>
+        <div class="project-tools">
+          <span class="tool-pill">Python</span>
+          <span class="tool-pill">TensorFlow</span>
+          <span class="tool-pill">Keras</span>
+          <span class="tool-pill">Google Colab</span>
+        </div>
+        <a href="https://github.com/danielcoblentz/Image-classification-using-VGG16" target="_blank" class="project-link">
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+
+  </div> <!-- end .projects-grid -->
+</section>
+
+  
      <!--Footer content----------------------------------------------------->
     <footer class="site-footer">
         <p>&copy; 2024 Daniel Coblentz. All rights reserved.</p>
