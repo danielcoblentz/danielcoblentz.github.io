@@ -53,15 +53,17 @@
     <span role="heading" aria-level="2" class="experience-nav__heading">Contents</span>
     <ul class="experience-nav__list">
         <li><a class="experience-nav__link" href="#overview">Overview</a></li>
-        <li><a class="experience-nav__link" href="#Late-fusion">Late fusion</a></li>
-        <li><a class="experience-nav__link" href="#methods">Methods</a></li>
-        <li><a class="experience-nav__link sub-tab" href="#transformers">Transformers</a></li>
-        <li><a class="experience-nav__link sub-tab" href="#fusion-strategy">Fusion strategy</a></li>
-        <li><a class="experience-nav__link sub-tab" href="#KANS">Kolmogorov Arnald Netowrks</a></li>
+        <li><a class="experience-nav__link" href="#Project-Architecture">Project Architecture</a></li>
+        <li><a class="experience-nav__link" href="#processing">Data Processing</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#structured-data">Structured Data</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#unstructured-data">Unstructured Data</a></li>
+        <li><a class="experience-nav__link" href="#fusion">Multimodal Fusion</a></li>
         
-        <li><a class="experience-nav__link" href="#experiments">Experiments</a></li>
-        <li><a class="experience-nav__link" href="#evaluation">Evaluation Results</a></li>
-        <li><a class="experience-nav__link" href="#future-work">Future work</a></li>
+        <li><a class="experience-nav__link" href="#experiments">Experimental methods</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#kan">Kolmogorov-Arnold Networks</a></li>
+        <li><a class="experience-nav__link sub-tab" href="#contrastive-learning">Contrastive Learning</a></li>
+        <li><a class="experience-nav__link" href="#results">Results & Evaluation</a></li>
+        <li><a class="experience-nav__link" href="#future-work">Future Work</a></li>
         <li><a class="experience-nav__link" href="#PyTorch">PyTorch</a></li>
     </ul>
 </nav>
@@ -74,14 +76,14 @@
             <!-- title -->
             <h2>Lawrence Berkeley National Laboratory</h2>
             <!-- image -->
-            <img src="/images/14_BL_Alt_Stack_Rev.png" alt="TA" class="ta-image"> <!--replace-->
+            <img src="/images/Berkeley_Lab_Logo_Large.png" alt="TA" class="ta-image"> <!--replace-->
             <!-- categories -->
             <div class="categories-container">
                 <div class="categories-left">
                     <h4>Role</h4>
                     <p>Machine Learning Research Intern</p>
                     <h4>Skills</h4>
-                    <p>Multimodal Machine Learning, Deep Learning, NLP</p>
+                    <p>Multimodal Machine Learning, Deep Learning, Clinical NLP</p>
                 </div>
                 <div class="categories-right">
                     <h4>Timeline</h4>
@@ -98,223 +100,226 @@
             <div class="experience-description">
                 <h3>Overview</h3>
                 <p>
-                    The Applied Mathematics & Computational Research Division <a href="https://crd.lbl.gov/divisions/amcr/" target="blank">(AMCR)</a> at Lawrence Berkeley National Laboratory advances research in mathematical modeling, algorithm design, and high-performance computing to address pressing scientific challenges. Our team applies machine learning to improve clinical phenotyping, with a focus on obstructive sleep apnea (OSA) and its related health risks.
+                    The Applied Mathematics & Computational Research Division <a href="https://crd.lbl.gov/divisions/amcr/" target="blank">(AMCR)</a> at Lawrence Berkeley National Laboratory advances research in mathematical modeling, algorithm design, 
+                    and high-performance computing to address pressing scientific challenges. I joined the Applied Computing for Scientific Discovery (ACSD) Group, where I worked in collaboration on their <a href= "https://pmc.ncbi.nlm.nih.gov/articles/PMC8065854/">clinical phenotyping</a> research project focused on obstructive sleep apnea (OSA) and its related cormorbilities.
                 </p>
                 <p>
-                    Building on prior work that analyzed only structured medical data such as lab results, diagnoses, and medication histories, this year’s research investigated whether incorporating unstructured clinical notes could yield richer patient profiles and improve subgroup identification. Clinical notes often capture nuanced details that structured fields cannot, including symptom descriptions, lifestyle factors, and physician impressions. By combining these complementary data sources, we aimed to uncover subtle patterns in patient health trajectories and improve predictive modeling.
+                    Traditional clinical phenotyping relies heavily on structured medical data (lab results, diagnosis codes, and medication histories). However, 
+                    clinical notes contain rich, unstructured information that often captures nuanced patient details unavailable in structured fields: symptom descriptions, lifestyle factors, physician impressions, and contextual observations. 
+                    The challenge was developing a system that could effectively combine these complementary data sources to create more comprehensive patient profiles.
                 </p>
                 <p>
-                    In my role as a Machine Learning Research Intern, I was primarily responcible for developing a late fusion pipeline to process each data type independently before combining their learned representations for analysis. 
-                    My final report can be found <a href="/images/VFP Student_Summer 2025_Research Report Paper_Coblentz_Daniel.pdf">here!</a>
+                    In my role as a Machine Learning Research Intern, I was responsible for developing a late fusion ML pipeline to process each data type independently before combining their learned representations for analysis. My complete research findings are documented
+                     in my <a href= "/images/VFP Student_Summer 2025_Research Report Paper_Coblentz_Daniel.pdf">final research report.</a>
                 </p>
             </div>
             
 
-             <!-- Late fusion -->
-        <section id="Late-fusion" class="experience-description">
-            <h3>Late fusion</h3>
+             <!-- Project-Architecture -->
+        <section id="Project-Architecture" class="experience-description">
+            <h3>Project Architecture</h3>
             <p>
-                <a href="https://www.geeksforgeeks.org/deep-learning/early-fusion-vs-late-fusion-in-multimodal-data-processing/#understanding-late-fusion"> Late fusion</a> also known as decision-level fusion—is a strategy for integrating information from different types of data. Instead of feeding all features into a single model from the start, we train two separate machine learning models, each specialized for its own data modality. In our case, one model was designed for structured data, and the other for unstructured text.
+                The core challenge in multimodal healthcare data is that structured clinical variables and unstructured text require fundamentally different processing approaches. Structured data benefits from tabular learning methods 
+                that can handle mixed data types and missing values, while clinical text requires domain-specific natural language processing to capture medical terminology and context.
             </p>
 
-            <p>Each model learns to represent its modality independently, capturing patterns that are unique to that data type. At the fusion stage, the output embeddings from both models are combined to create a joint multimodal representation. This allows the system to leverage the strengths of each modality while avoiding the interference that can occur when mixing raw features too early.</p>
-        </section>
-
-        <!-- methods section -->
-        <section id="methods" class="experience-description">
-            <h3>Methods</h3>
             <p>
-             Each modality followed its own preprocessing and modeling path, using architectures tailored to its data type. Structured variables were modeled with a feature-attention architecture (TabNet), while unstructured clinical text was processed with a domain-specific language model (ClinicalBERT). The resulting embeddings were then combined using a late fusion strategy to support downstream clustering and classification tasks.
+            I implemented a <a href="https://apxml.com/courses/intro-to-multimodal-ai/chapter-3-techniques-integrating-modalities/late-fusion">late fusion</a> architecture that trains separate specialized encoders for each modality before combining their outputs. This approach allows each model to learn optimal representations for its
+             respective data modality without interference from the other modality during initial training. The structured data encoder uses <a href="https://arxiv.org/pdf/1908.07442">TabNet's</a> sequential attention mechanism, while the text encoder leverages <a href="https://arxiv.org/pdf/1904.05342">ClinicalBERT's </a>domain-specific language understanding.
+             
             </p>
-            <img src="/images/project_architecture.png" alt="TA" class="ta-image">
-            <p>FIG. 1. Structured data and clinical notes are encoded separately using TabNet and ClinicalBERT. Their embeddings are fused for multimodal classification and clustering to identify patient subgroups and disease phenotypes. </p>
+            <p>
+                <img src="/images/project_architecture.png" alt="TA" class="ta-image">
+            </p>
+
+            <p>
+                The fusion stage concatenates 128-dimensional embeddings from each encoder, creating a unified 256-dimensional latent space representation. Embeddings are dense numerical vectors that compress complex, high-dimensional information into compact 
+                representations where semantically similar data points map closer together in the vector space. This joint embedding captures both the quantitative precision of structured data and the qualitative richness of clinical narratives, enabling enhanced patient profiling than either modality alone.
+
+            </p>
+        </section>
+
+        <!-- Data Processing section -->
+        <section id="processing" class="experience-description">
+            <h3>Data Processing</h3>
+            <p>
+                Machine learning systems work with two fundamentally different types of data. Structured data consists of organized information stored in predefined formats like spreadsheet tables with clear rows, columns, and standardized values. Unstructured data, in contrast, is free form information without predefined structure primarily human written text, images, or audio that doesn't fit neatly into database fields. Think of social media posts, product reviews, or email content that contains insights but requires specialized processing to extract meaningful patterns.
+            </p>
+            <p>
+                For this clinical dataset, comprehensive preprocessing was applied to prepare both data modalities for machine learning. The pipeline included removing low-variance features to address sparsity, applying one-hot encoding and standard scaling transformations, and reducing features through statistical analysis. SHAP (SHapley Additive exPlanations) analysis was used to highlight the most informative variables, ensuring that only high-quality features were retained. Additional steps involved handling missing values, log transformations for skewed distributions, and specialized medication encoding strategies that incorporated both binary presence and count-based representations to optimize feature quality.
+            </p>
+            
 
         </section>
 
-        <!-- transformers (tabnet and clinicalBert) -->
-        <!-- transformers (TabNet and ClinicalBERT) -->
-<section id="transformers" class="experience-subsection">
-    <h4>Transformers</h4>
+        <!-- structured data sub section -->
+<section id="structured-data" class="experience-subsection">
+    <h4>Structured Data</h4>
     <p>
-        A core part of this project involved applying transformer-based models to each type of data. 
-        Transformers are a class of neural networks originally developed for natural language processing and now widely adopted in 
-        fields such as medical imaging, speech recognition, and time-series analysis. Their strength lies in modeling complex 
-        dependencies within sequential data, making them well-suited for both structured clinical features and medical notes. 
+        Clinical structured data presents unique challenges: high dimensionality, mixed data types, and complex feature interactions. Traditional <a href="https://www.ibm.com/think/topics/neural-networks">neural networks</a> treat all input features equally, but in healthcare, 
+        feature importance varies dramatically across patients and conditions. Lab values, demographics, and medication histories don't contribute uniformly to every clinical decision.
     </p>
-    
     <p>
-        For structured data (lab results, diagnosis codes, etc) I used <a href="https://arxiv.org/abs/1908.07442" target="_blank">TabNet</a>
-        Unlike conventional neural networks that treat all features equally, TabNet applies a sequential attention mechanism to 
-        selectively focus on the most relevant variables at each decision step. This improves predictive performance while also 
-        offering interpretability by highlighting which features drive model decisions. In healthcare, this transparency is especially 
-        important because there are many features that contribute to a patient profile but not all of them have equal importance.
-        
+        To address these challenges, I implemented TabNet, a transformer-based architecture specifically designed for tabular data. TabNet applies sequential attention across features, 
+        learning to focus on the most relevant variables at each decision step. For our clinical dataset, I configured TabNet with 3 decision steps and a step size of 128 which yeilded the best results in model training.
     </p>
-    
     <p>
-        For unstructured text, such as discharge summaries and physician notes, I used  <a href="https://arxiv.org/abs/1904.05342" target="_blank">ClinicalBERT</a>, a domain-specific 
-        variant of the BERT transformer model. Trained on large corpora of biomedical literature and clinical notes, ClinicalBERT 
-        captures the nuances of medical terminology, abbreviations, and context-specific language that general-purpose models often 
-        miss. In this project, ClinicalBERT transformed narrative records into dense vector representations, encoding both clinical 
-        meaning and context. 
+        The attention mechanism learned to prioritize features like medications and known comorbidity indicators for OSA phenotyping, while de-emphasizing less relevant demographic variables. This selective attention proved especially valuable during model interpretation, allowing clinicians to understand which patient characteristics drove specific predictions, a critical requirement in healthcare applications.
     </p>
 </section>
 
 
-       <!-- Fusion strategy -->
-<!-- Fusion strategy -->
-<section id="fusion-strategy" class="experience-subsection">
-    <h4>Fusion Strategy</h4>
+<!-- unstructured data -->
+<section id="unstructured-data" class="experience-subsection">
+    <h4>Unstructured Data</h4>
     <p>
-        Once each modality was processed by its respective model, the outputs were transformed into 
-        <a href="https://en.wikipedia.org/wiki/Word_embedding" target="_blank">embeddings</a>—dense numerical vectors that 
-        summarize complex information in a compact form. For structured data, TabNet produced 128-dimensional embeddings 
-        that captured key clinical features. For unstructured text, ClinicalBERT generated 768-dimensional embeddings 
-        from discharge summaries, which were reduced to 128 dimensions for consistency across modalities.
+        Clinical notes contain information that structured fields cannot capture: detailed symptom descriptions, temporal relationships, physician reasoning, and contextual observations. However, medical text presents significant NLP challenges, including domain-specific terminology, frequent abbreviations, and specialized syntax that general-purpose language models struggle to interpret correctly.
     </p>
     
     <p>
-        These embeddings function as “compressed snapshots” of a patient’s profile, where similar patients map closer 
-        together in this high-dimensional space. To integrate them, we adopted a 
-        <a href="https://www.geeksforgeeks.org/deep-learning/early-fusion-vs-late-fusion-in-multimodal-data-processing/#understanding-late-fusion" target="_blank">late fusion</a> 
-        strategy—concatenating embeddings from each modality and passing the combined representation through fully connected 
-        layers for joint optimization. This approach preserved the strengths of both data types while enabling downstream 
-        clustering, classification, and visualization within a unified latent space.
+        I implemented ClinicalBERT, a domain-specific variant of <a href="https://arxiv.org/pdf/1810.04805">BERT</a> pre-trained on biomedical literature and clinical notes. Unlike general-purpose language models, ClinicalBERT understands medical terminology like "CPAP" (continuous positive airway pressure) and "AHI" (apnea-hypopnea index) that are crucial for accurate interpretation of patient notes.
     </p>
     
     <p>
-        We also explored contrastive learning as an alternative fusion strategy, projecting embeddings into a shared latent space and training them to align for the same patient. However, this approach did not yield stable performance on our dataset and was ultimately not used in the final pipeline.
+        The implementation involved developing a preprocessing pipeline that tokenized clinical notes while preserving medical abbreviations and handling varying note lengths through truncation strategies optimized for BERT's 512-token input limit. ClinicalBERT generated 768-dimensional embeddings, which I compressed to 128 dimensions using a learned projection layer to match TabNet's output dimensions.
     </p>
 </section>
 
 
-        
 
-
-       <!-- Kolmogorov-Arnold Networks -->
-<section id="KANS" class="experience-subsection">
-    <h4>Kolmogorov-Arnold Networks (KANs)</h4>
+       <!-- Multimodal fusion techniques -->
+<section id="fusion" class="experience-description">
+    <h4>Multimodal fusion</h4>
     <p>
-        Kolmogorov-Arnold Networks are a relatively new neural network architecture inspired by the 
-        <a href="https://en.wikipedia.org/wiki/Kolmogorov%E2%80%93Arnold_representation_theorem" target="_blank">
-        Kolmogorov–Arnold representation theorem</a>, which states that any multivariate continuous function can be expressed 
-        as a composition of single-variable functions. Unlike traditional multilayer perceptrons (MLPs) that use fixed activation 
-        functions at each neuron, KANs place learnable non-linear functions—often modeled with 
-        <a href="https://en.wikipedia.org/wiki/B-spline" target="_blank">B-splines</a>—on the edges between nodes. 
-        This design makes them more expressive and interpretable, while often requiring fewer parameters.
+        Combining structured and unstructured clinical data requires careful consideration of how and when to integrate information from each modality. The fusion strategy significantly impacts the model's ability to leverage complementary information while avoiding interference between different data types.
     </p> 
     
     <p>
-        In our project, KANs were tested as part of the <strong>classification pipeline</strong>, one of our key downstream tasks. 
-        Their ability to capture complex interactions in structured clinical data made them a strong candidate for comparison 
-        against traditional models such as <strong>Random Forests</strong> and <strong>Logistic Regression</strong>. 
-        While KANs required longer training times, they demonstrated promising representational power, and with recent optimizations 
-        (e.g., <a href="https://github.com/Blealtan/efficient-kan" target="_blank">efficient-KAN</a>), these limitations are becoming less significant. 
-        This suggests KANs could play an important role in advancing future healthcare AI applications.
+        There are multiple fusion strategies most common are <a href="https://medium.com/haileleol-tibebu/data-fusion-78e68e65b2d1">early fusion</a>, <a href="https://www.sciencedirect.com/science/article/abs/pii/S0957417424031750">knowledge graphs</a> and late fusion also known as decision-level fusion which is what I'm focusing on. Instead of feeding all features into a single model from the start (early fusion), we train two separate machine learning models, each specialized for its own data modality. In our case, one model was designed for structured data, and the other for unstructured clinical text.
     </p>
 
-    <img src="/images/KAN.png" alt="TA" class="ta-image">
-    <p>Fig 2. Kolmogorov-Arnold Network architecture compared to a traditional MLP.</p>
+<p>Each model learns to represent its modality independently, capturing patterns that are unique to that data type. At the fusion stage, the output embeddings from both models are combined to create a joint multimodal representation. This allows the system to leverage the strengths of each modality while avoiding the interference that can occur when mixing raw features too early.
+
+</p>
 </section>
 
 
-<section id="experiments" class="experience-subsection">
-    <h4>Experiments</h4>
+<section id="experiments" class="experience-description">
+    <h4>Experimental methods</h4>
     <p>
-      We evaluated both single-modality and multimodal setups for patient profiling. Baselines were trained
-      independently on structured features (<strong>TabNet</strong>) and unstructured discharge summaries
-      (<strong>ClinicalBERT</strong>) to establish modality-specific performance. For multimodal learning,
-      we primarily used <strong>late fusion</strong>—concatenating modality embeddings (128&nbsp;dims each)
-      and training a joint head. We also explored <strong>contrastive learning</strong> to align
-      cross-modal pairs in a shared space; however, it was unstable on our data and was not used in the final pipeline.
+        I designed a comprehensive evaluation framework to assess both single-modality baselines and multimodal performance across multiple tasks. The experimental methodology included exploration of various architectures and alternative fusion strategies to evaluate the multimodal approach.
     </p>
     <p>
-      Downstream classification used <strong>Kolmogorov–Arnold Networks (KANs)</strong>,
-      <strong>Random Forests</strong>, and <strong>Logistic Regression</strong> on frozen embeddings.
-      Hyperparameters were tuned with cross-validation and fixed seeds. Performance was measured on two tasks:
-      (1) <em>classification</em> of comorbidity risk (AUROC, accuracy) and
-      (2) <em>clustering</em> for subgroup discovery (Silhouette, Adjusted Rand Index, Davies–Bouldin).
-      This dual evaluation captures both predictive utility and the structure of learned patient subgroups.
+        Baseline models were trained independently on each modality: TabNet for structured data and ClinicalBERT for clinical notes. All experiments used fixed random seeds and consistent train/validation/test splits to ensure reproducible results. Hyperparameters were optimized using grid search with 5-fold cross-validation, and performance was evaluated on held-out test sets.
     </p>
   </section>
+
+  <!-- KANS -->
+<section id="kan" class="experience-subsection">
+    <h4>Kolmogorov-Arnold Networks</h4>
+    <p>
+        As part of the experimental framework, I explored <a href="https://arxiv.org/pdf/2404.19756">Kolmogorov-Arnold Networks (KANs)</a> for downstream classification tasks. KANs represent a relatively new neural architecture that places learnable functions on network edges rather than nodes, inspired by the Kolmogorov-Arnold representation theorem which states that any multivariate continuous function can be expressed as a composition of single-variable functions.
+    </p>
+    
+    <p>
+        Unlike traditional MLPs that use fixed activation functions, KANs employ learnable B-spline functions on edges, making them more expressive for capturing complex feature interactions. This property made them interesting for clinical data, where patient features often interact in non-linear ways. While KANs required longer training times than traditional classifiers, they demonstrated competitive performance and offered improved interpretability through visualizable edge functions.
+
+    </p>
+    <p>
+        
+        <img src="/images/KAN.png" alt="TA" class="ta-image"> 
+    </p>
+    
+    
+</section>
+
+<!-- Contrastive Learning -->
+<section id="contrastive-learning" class="experience-subsection">
+    <h4>Contrastive Learning</h4>
+    <p>
+        As an alternative to other fusion methods, I experimented with contrastive learning to align cross-modal embeddings in a shared latent space. This method trains the model to bring embeddings from the same patient closer together while pushing different patients' embeddings apart, regardless of modality.
+    </p>
+    
+    <p>
+        The contrastive approach used InfoNCE loss to maximize mutual information between structured and text embeddings for the same patient. The goal was to create a unified representation space where semantically similar patients would cluster together, even when comparing across different data modalities.
+    </p>
+    
+    <p>
+        However, this method proved unstable on our clinical dataset, likely due to the high variability in clinical documentation styles and the relatively small dataset size. Training loss remained low, however the model struggled to separate positive and negative pairs in latent space. There are a number of reasons for this such as insufficient negative sampling diversity (clinical notes from different patients may still share similar medical terminology), high intra-class variance (the same patient's different notes can vary significantly in content and style), limited semantic signal in structured features for contrastive alignment, and class imbalance where certain patient conditions dominate the dataset, making it difficult to learn discriminative representations across diverse patient populations.
+    </p>
+    <p>The approach was ultimately not included in the final pipeline, though it remains a promising direction for future work with larger, more diverse clinical datasets that could provide the scale and variety needed for stable contrastive learning.</p>
+</section>
   
 
         
 
   <section id="evaluation" class="experience-subsection">
-    <h4>Evaluation</h4>
+    <h4>Results & Evaluation</h4>
     <p>
-        To assess the quality of the learned multimodal patient representations, we evaluated both clustering and classification performance. 
-        Our pipeline generated <strong>embeddings</strong>—dense vector representations of patients—using separate encoders for structured data (TabNet) 
-        and unstructured text (ClinicalBERT). These embeddings were then fused in a shared latent space, providing the foundation for downstream analysis.
+        The evaluation framework assessed both clustering quality and classification performance to validate the learned patient representations. Clustering metrics measured how well the pipeline discovered meaningful patient subgroups, while classification tasks evaluated predictive utility for clinical outcomes.
     </p>
     <p>
-        For clustering evaluation, we computed the <strong>Silhouette Score</strong> to measure intra-cluster cohesion and inter-cluster separation, 
-        along with the <strong>Adjusted Rand Index (ARI)</strong> and <strong>Davies–Bouldin Index (DBI)</strong>. 
-        Visualizations such as UMAP projections and cluster heatmaps were also used to qualitatively inspect subgroup separation and highlight 
-        potential clinical patterns.
+        For clustering evaluation, I used UMAP to reduce the dimentions of each represntation into a 2D latent space plot and computed Silhouette Scores to measure cluster cohesion and separation, Adjusted Rand Index (ARI) to assess clustering agreement with clinical expectations, and Davies-Bouldin Index (DBI) to evaluate cluster compactness. These metrics provided comprehensive assessment of subgroup discovery quality.
+        <img src="/images/LBNL_results_table.png" alt="TA" class="ta-image">
     </p>
     <p>
-        To further validate the embeddings, we applied them to a supervised classification task. Using models such as <strong>Random Forests</strong> 
-        and <strong>Kolmogorov-Arnold Networks (KANs)</strong>, we measured predictive performance with the <strong>Area Under the Receiver Operating Characteristic (AUROC)</strong> score, 
-        providing a robust metric for distinguishing between clinical outcomes.
-    </p>
+        Classification performance was measured using Area Under the Receiver Operating Characteristic curve (AUROC) for binary outcomes related to OSA complications and comorbidities. This metric effectively handles class imbalance common in clinical datasets and provides clinically interpretable performance measures.
+        <img src="/images/CLASSIFICATION.png" alt="TA" class="ta-image">
+        
     <p>
-        Together, these quantitative metrics and qualitative visual analyses offered a comprehensive evaluation of our multimodal learning pipeline—capturing both the structural quality of discovered subgroups and their predictive relevance for downstream tasks.
+        The results demonstrated clear benefits from multimodal fusion. The combined approach achieved a 55% improvement in clustering quality over the best single-modality baseline and maintained competitive classification performance while discovering more clinically meaningful patient subgroups.
     </p>
+</section>
 
-    <img src="/images/LBNL_results_table.png" alt="TA" class="ta-image">
+        
+<!--future work -->
+<section id="future-work" class="experience-subsection">
+    <h4>Future Work</h4>
     <p>
-        Table I. Clustering performance comparison across data modalities. Structured, unstructured, and fused embeddings 
-        (ARI: -1 to 1, Silhouette: -1 to 1, DBI: 0 to ∞; higher ARI and Silhouette values indicate better clustering, lower DBI is favorable).
+        This multimodal clinical phenotyping pipeline opens several promising research directions 
+        that could further enhance patient stratification and clinical decision-making capabilities.
+    </p>
+    <p>
+        <strong>Expanding multimodal coverage:</strong> Incorporating additional clinical modalities such 
+        as medical imaging (CT scans, X-rays), time-series physiological data (continuous vital signs, ECGs), 
+        and genomic information could create richer patient representations. Each modality would require 
+        specialized encoders, but the late fusion framework can naturally accommodate these additions.
+    </p>
+    <p>
+        <strong>Exploring advanced fusion strategies:</strong> While late fusion proved effective, 
+        hierarchical fusion or attention-based mechanisms could better capture cross-modal interactions. 
+        Graph neural networks may also model relationships between clinical entities across modalities, 
+        potentially improving subgroup discovery.
+    </p>
+    <p>
+        <strong>Improving clinical text filtering:</strong> Currently, all clinical notes are included 
+        without prioritization. Identifying and emphasizing semantically rich text could enhance 
+        representation quality and lead to more robust predictions.
     </p>
 </section>
 
         
 
-        <!--future work -->
-        <section id="future-work" class="experience-subsection">
-            <h4>Future Work</h4>
-            <p>There are several directions to extend and refine this work:</p>
-            <ol>
-                <li>1) Incorporating Additional Modalities: Expanding the input space to include imaging data, time-series vital signs, or genetic information could further enhance patient stratification.</li>
-                <li>2) Exploring Alternative Fusion Strategies: While this study employed late fusion, other strategies such as hybrid or hierarchical fusion could be tested to capture different types of cross-modal interactions.</li>
-                <li>3) Temporal Modeling of Patient Data: Introducing models that explicitly capture longitudinal changes—such as Transformer-based time-series architectures—could improve the detection of evolving patient risk profiles.</li>
-                <li>4) Fine-Tuning on Downstream Clinical Tasks: Applying the learned multimodal embeddings to predictive tasks (e.g., readmission risk, mortality prediction) would provide further validation of their utility.</li>
-                <li>5) Integrating Clinician Feedback: Building interactive tools for physicians to explore and validate clusters could bridge the gap between model outputs and clinical decision-making.</li>
-            </ol>
-            <p>By pursuing these avenues, future research can not only refine technical performance but also increase the translational impact of multimodal deep phenotyping in precision healthcare.</p>
-        </section>
-        
-
-    <!-- tools / reflections -->
+<!-- tools / reflections -->
 <section id="PyTorch" class="experience-description">
     <h3>PyTorch</h3>
     <p>
         <a href="https://pytorch.org/" target="_blank">PyTorch</a>, developed by Meta AI Research, 
-        is one of the most widely used deep learning frameworks. 
-        It provides two core capabilities:
-    </p>
-    <ul>
-        <li><strong>Tensor computation</strong> (similar to NumPy) with GPU acceleration.</li>
-        <li><strong>Deep neural networks</strong> built on a dynamic, tape-based autograd system.</li>
-    </ul>
-    <p>
-        Unlike frameworks that require static computation graphs, PyTorch supports 
-        <strong>dynamic computational graphs</strong>, allowing models to adapt at runtime. 
-        This flexibility makes it especially useful for research and experimentation in areas like 
-        image recognition, natural language processing, and time-series modeling.
+        is one of the most widely used deep learning frameworks. It combines efficient tensor computation 
+        with GPU acceleration and a dynamic autograd system for building deep neural networks. Unlike 
+        frameworks that rely on static computation graphs, PyTorch allows models to be defined and 
+        modified at runtime, giving researchers and developers a high degree of flexibility in experimentation. 
+        This adaptability has made it especially popular in areas such as image recognition, natural language 
+        processing, and time-series modeling.
     </p>
     <p>
-        For this project, PyTorch served as the backbone for training both <strong>TabNet</strong> and 
-        <strong>ClinicalBERT</strong>, enabling us to efficiently build and test multimodal fusion pipelines. 
-        I’ve also used PyTorch in personal projects, where its flexibility and strong ecosystem 
-        (alongside libraries like <strong>scikit-learn</strong> and <strong>TensorFlow</strong>) 
-        allow me to explore ideas quickly and translate them into working prototypes.
+        In my work, PyTorch served as the foundation for training both <strong>TabNet</strong> and 
+        <strong>ClinicalBERT</strong>, enabling fast prototyping and efficient multimodal fusion pipelines. 
+        I also use PyTorch in personal projects, where its intuitive design and large ecosystem, often 
+        integrated alongside libraries like <strong>scikit-learn</strong> and <strong>TensorFlow</strong>, 
+        make it an excellent choice for testing new ideas and quickly turning them into working prototypes.
     </p>
 </section>
-
-
 
             
 <!--Footer content----------------------------------------------------->
