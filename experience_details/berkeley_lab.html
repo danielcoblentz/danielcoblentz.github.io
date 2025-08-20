@@ -59,7 +59,7 @@
         <li><a class="experience-nav__link sub-tab" href="#unstructured-data">Unstructured Data</a></li>
         <li><a class="experience-nav__link" href="#fusion">Multimodal Fusion</a></li>
         
-        <li><a class="experience-nav__link" href="#experiments">Experimental methods</a></li>
+        <li><a class="experience-nav__link" href="#experiments">Experimental Methods</a></li>
         <li><a class="experience-nav__link sub-tab" href="#kan">Kolmogorov-Arnold Networks</a></li>
         <li><a class="experience-nav__link sub-tab" href="#contrastive-learning">Contrastive Learning</a></li>
         <li><a class="experience-nav__link" href="#results">Results & Evaluation</a></li>
@@ -101,7 +101,7 @@
                 <h3>Overview</h3>
                 <p>
                     The Applied Mathematics & Computational Research Division <a href="https://crd.lbl.gov/divisions/amcr/" target="blank">(AMCR)</a> at Lawrence Berkeley National Laboratory advances research in mathematical modeling, algorithm design, 
-                    and high-performance computing to address pressing scientific challenges. I joined the Applied Computing for Scientific Discovery (ACSD) Group, where I worked in collaboration on their <a href= "https://pmc.ncbi.nlm.nih.gov/articles/PMC8065854/">clinical phenotyping</a> research project focused on obstructive sleep apnea (OSA) and its related cormorbilities.
+                    and high-performance computing to address pressing scientific challenges. I joined the Applied Computing for Scientific Discovery (ACSD) Group, where I worked in collaboration on their <a href= "https://pmc.ncbi.nlm.nih.gov/articles/PMC8065854/">clinical phenotyping</a> research project focused on obstructive sleep apnea (OSA) and its related comorbidities.
                 </p>
                 <p>
                     Traditional clinical phenotyping relies heavily on structured medical data (lab results, diagnosis codes, and medication histories). However, 
@@ -132,7 +132,7 @@
             </p>
             <p>
                 The fusion stage concatenates 128-dimensional embeddings from each encoder, creating a unified 256-dimensional latent space representation. Embeddings are dense numerical vectors that compress complex, high-dimensional information into compact 
-                representations where semantically similar data points map closer together in the vector space. This joint embedding captures both the quantitative precision of structured data and the qualitative richness of clinical narratives, enabling enhanced patient profiling than either modality alone.
+                representations where semantically similar data points map closer together in the vector space. This joint embedding captures both the quantitative precision of structured data and the qualitative richness of clinical narratives, enabling enhanced patient profiling compared to either modality alone.
 
             </p>
         </section>
@@ -141,7 +141,7 @@
         <section id="processing" class="experience-description">
             <h3>Data Processing</h3>
             <p>
-                Machine learning systems work with two fundamentally different types of data. Structured data consists of organized information stored in predefined formats like spreadsheet tables with clear rows, columns, and standardized values. Unstructured data, in contrast, is free form information without predefined structure primarily human written text, images, or audio that doesn't fit neatly into database fields. Think of social media posts, product reviews, or email content that contains insights but requires specialized processing to extract meaningful patterns.
+                Machine learning systems work with two fundamentally different types of data. Structured data consists of organized information stored in predefined formats like spreadsheet tables with clear rows, columns, and standardized values. Unstructured data, in contrast, is free-form information without a predefined structure. It is primarily human-written text, images, or audio that doesn’t fit neatly into database fields. Think of social media posts, product reviews, or email content that contain insights but requires specialized processing to extract meaningful patterns.
             </p>
             <p>
                 For this clinical dataset, comprehensive preprocessing was applied to prepare both data modalities for machine learning. The pipeline included removing low-variance features to address sparsity, applying one-hot encoding and standard scaling transformations, and reducing features through statistical analysis. SHAP (SHapley Additive exPlanations) analysis was used to highlight the most informative variables, ensuring that only high-quality features were retained. Additional steps involved handling missing values, log transformations for skewed distributions, and specialized medication encoding strategies that incorporated both binary presence and count-based representations to optimize feature quality.
@@ -159,7 +159,7 @@
     </p>
     <p>
         To address these challenges, I implemented TabNet, a transformer-based architecture specifically designed for tabular data. TabNet applies sequential attention across features, 
-        learning to focus on the most relevant variables at each decision step. For our clinical dataset, I configured TabNet with 3 decision steps and a step size of 128 which yeilded the best results in model training.
+        learning to focus on the most relevant variables at each decision step. For our clinical dataset, I configured TabNet with 3 decision steps and a step size of 128 which yielded the best results in model training.
     </p>
     <p>
         The attention mechanism learned to prioritize features like medications and known comorbidity indicators for OSA phenotyping, while de-emphasizing less relevant demographic variables. This selective attention proved especially valuable during model interpretation, allowing clinicians to understand which patient characteristics drove specific predictions, a critical requirement in healthcare applications.
@@ -175,7 +175,7 @@
     </p>
     
     <p>
-        I implemented ClinicalBERT, a domain-specific variant of <a href="https://arxiv.org/pdf/1810.04805">BERT</a> pre-trained on biomedical literature and clinical notes. Unlike general-purpose language models, ClinicalBERT understands medical terminology like "CPAP" (continuous positive airway pressure) and "AHI" (apnea-hypopnea index) that are crucial for accurate interpretation of patient notes.
+        I implemented ClinicalBERT, a domain-specific variant of <a href="https://arxiv.org/pdf/1810.04805">BERT</a> pre-trained on biomedical literature and clinical notes. Unlike general-purpose language models, ClinicalBERT understands medical terminology such as "CPAP" (continuous positive airway pressure) and "AHI" (apnea-hypopnea index) that are crucial for accurate interpretation of patient notes.
     </p>
     
     <p>
@@ -243,7 +243,7 @@
     </p>
     
     <p>
-        However, this method proved unstable on our clinical dataset, likely due to the high variability in clinical documentation styles and the relatively small dataset size. Training loss remained low, however the model struggled to separate positive and negative pairs in latent space. There are a number of reasons for this such as insufficient negative sampling diversity (clinical notes from different patients may still share similar medical terminology), high intra-class variance (the same patient's different notes can vary significantly in content and style), limited semantic signal in structured features for contrastive alignment, and class imbalance where certain patient conditions dominate the dataset, making it difficult to learn discriminative representations across diverse patient populations.
+        However, this method proved unstable on our clinical dataset, likely due to the high variability in clinical documentation styles and the relatively small dataset size. Training loss remained low however, the model struggled to separate positive and negative pairs in latent space. There are a number of reasons for this such as insufficient negative sampling diversity (clinical notes from different patients may still share similar medical terminology), high intra-class variance (the same patient's different notes can vary significantly in content and style), limited semantic signal in structured features for contrastive alignment, and class imbalance where certain patient conditions dominate the dataset, making it difficult to learn discriminative representations across diverse patient populations.
     </p>
     <p>The approach was ultimately not included in the final pipeline, though it remains a promising direction for future work with larger, more diverse clinical datasets that could provide the scale and variety needed for stable contrastive learning.</p>
 </section>
@@ -262,7 +262,7 @@
         
     </p>
     <p>
-        Classification performance was measured using Area Under the Receiver Operating Characteristic curve (AUROC) for binary outcomes related to OSA complications and comorbidities with three different models Random Forest(RF), Logistic regression (LR) and KANS. This metric effectively handles class imbalance common in clinical datasets and provides clinically interpretable performance measures.
+        Classification performance was measured using Area Under the Receiver Operating Characteristic curve (AUROC) for binary outcomes related to OSA complications and comorbidities with three different models Random Forest (RF), Logistic Regression (LR) and KANS. This metric effectively handles class imbalance common in clinical datasets and provides clinically interpretable performance measures.
         <img src="/images/classification_table.png" alt="results_table" class="exp-image">
         
     <p>
@@ -279,19 +279,19 @@
         that could further enhance patient stratification and clinical decision-making capabilities.
     </p>
     <p>
-        <strong>Expanding multimodal coverage:</strong> Incorporating additional clinical modalities such 
+        Expanding multimodal coverage:Incorporating additional clinical modalities such 
         as medical imaging (CT scans, X-rays), time-series physiological data (continuous vital signs, ECGs), 
-        and genomic information could create richer patient representations. Each modality would require 
-        specialized encoders, but the late fusion framework can naturally accommodate these additions.
+        and genomic information could create richer patient representations. 
+        Each modality would need its own encoder, which the late fusion framework can readily accommodate.
     </p>
     <p>
-        <strong>Exploring advanced fusion strategies:</strong> While late fusion proved effective, 
+        Exploring advanced fusion strategies:While late fusion proved effective, 
         hierarchical fusion or attention-based mechanisms could better capture cross-modal interactions. 
         Graph neural networks may also model relationships between clinical entities across modalities, 
         potentially improving subgroup discovery.
     </p>
     <p>
-        <strong>Improving clinical text filtering:</strong> Currently, all clinical notes are included 
+        Improving clinical text filtering: Currently, all clinical notes are included 
         without prioritization. Identifying and emphasizing semantically rich text could enhance 
         representation quality and lead to more robust predictions.
     </p>
@@ -312,10 +312,10 @@
         processing, and time-series modeling.
     </p>
     <p>
-        In my work, PyTorch served as the foundation for training both <strong>TabNet</strong> and 
-        <strong>ClinicalBERT</strong>, enabling fast prototyping and efficient multimodal fusion pipelines. 
+        In my work, PyTorch served as the foundation for training both TabNetand 
+        ClinicalBERT, enabling fast prototyping and efficient multimodal fusion pipelines. 
         I also use PyTorch in personal projects, where its intuitive design and large ecosystem, often 
-        integrated alongside libraries like <strong>scikit-learn</strong> and <strong>TensorFlow</strong>, 
+        integrated alongside libraries like scikit-learn and TensorFlow, 
         make it an excellent choice for testing new ideas and quickly turning them into working prototypes.
     </p>
 </section>

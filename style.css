@@ -652,7 +652,7 @@ a {
     margin-bottom: 100px;
     padding-left: 30px;
 }
-.company-name, .time-frame, .role-description, .role-detail {/* Styles for titles and text within details */
+.company-name, .time-frame, .role-description, .role-detail {
     color: #cdd6f4; 
     padding: 5px 0;
     line-height: 1.5;
@@ -673,7 +673,7 @@ a {
 .role-detail i {
     position: absolute; 
     left: 0; 
-    top: 0; 
+    top: 5px; 
     margin-right: 3px; 
     color: #fff; 
 }
@@ -826,7 +826,7 @@ a {
     }
 
     .experience-details {
-        width: 100%; /* Full width for detail display */
+        width: 100%; 
         padding: 20px;
     }
 
@@ -849,13 +849,10 @@ a {
     }
 }
 /* Projects section styles -------------------------------------------------------------------------------------------------*/
-/* ---------------- Projects Section ---------------- */
-
 .projects-section {
     padding: 40px 20px;
 }
 
-/* Header + divider aligned with Experience */
 .section-header {
     width: 100%;
     text-align: left;
@@ -868,20 +865,20 @@ a {
     font-size: 2.6rem;
     color: #cdd6f4;
     margin-bottom: 10px;
-    padding-left: 30px; /* match Experience */
+    padding-left: 20px; 
 }
 
 .section-divider {
     position: absolute;
     margin-top: -35px;
-    left: 305px; /* match Experience */
-    width: 17%;
+    left: 257px; 
+    width: 22%;
     height: 2px;
     background-color: #cdd6f4;
     opacity: 0.2;
 }
 
-/* Projects grid: 2 cols x 3 rows */
+/* Projects grid: 2 cols x 3 rows this is new testing it out rn */
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -890,7 +887,7 @@ a {
     margin: auto;
 }
 
-/* Each project card */
+/* project card */
 .project {
     display: flex;
     align-items: flex-start;
@@ -901,14 +898,14 @@ a {
     transition: all 0.3s ease;
 }
 
-/* Image */
+/* preview img */
 .project-image img {
     width: 160px;
     border-radius: 6px;
     transition: transform 0.3s ease;
 }
 
-/* Content beside image */
+/* content beside image */
 .project-content {
     flex: 1;
     margin-left: 15px;
@@ -931,7 +928,7 @@ a {
     max-width: 400px; /* keeps text from spilling past image height */
 }
 
-/* Tool pills */
+/* tool pills (bottom of project cards) */
 .project-tools {
     display: flex;
     flex-wrap: wrap;
@@ -946,7 +943,7 @@ a {
     color: #cdd6f4;
 }
 
-/* Arrow link */
+/* arrow link */
 .project-link {
     position: absolute;
     bottom: 12px;
@@ -960,11 +957,17 @@ a {
     transform: translateX(4px);
 }
 
-/* Hover behavior */
-.projects-section:hover .project {
-    opacity: 0.5; /* dim all by default */
-}
-
+/* hover behavior */
+.projects-grid:hover .project {
+    opacity: 0.5;
+  }
+  
+  .projects-grid .project:hover {
+    opacity: 1;
+    background-color: #1c1c28;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+  
 .project:hover {
     background-color: #1c1c28;
     box-shadow: 0 4px 12px rgba(0,0,0,0.3);
@@ -995,7 +998,11 @@ a {
         top: 56px;
         width: 100px; 
     }
-}
+    @media (max-width: 768px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }}
 /*Responsive for mobile--------------------*/
 @media (max-width: 480px) {
     .projects-section h2 {
@@ -1032,8 +1039,67 @@ a {
     .section-divider {
         left:calc(188px - 0px);
         top: 56px;
-        width: 125px; /* Reduce width for smaller screens */
+        width: 125px; 
     }
+    /* mobile (≤480px) */
+@media (max-width: 480px) {
+    .projects-section {
+      padding: 20px 10px;
+    }
+  
+    .projects-section h2 {
+      font-size: 2rem;
+      padding-left: 10px;
+    }
+  
+    .section-divider {
+      left: 200px;  
+      top: 18px;
+      width: 70px;
+    }
+  
+    .projects-grid {
+      grid-template-columns: 1fr;
+      gap: 15px;
+      width: 100%;
+    }
+  
+    .project {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 10px;
+    }
+  
+    .project-image img {
+      width: 100%;
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
+  
+    .project-content {
+      margin-left: 0;
+    }
+  
+    .project h3 {
+      font-size: 1rem;
+    }
+  
+    .project p {
+      font-size: 0.8rem;
+    }
+  
+    .tool-pill {
+      font-size: 0.7rem;
+      padding: 3px 8px;
+    }
+  
+    .project-link {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      margin-top: 10px;
+    }
+  }
 }
 /*Footer section + icons styles--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------*/
 .site-footer {
