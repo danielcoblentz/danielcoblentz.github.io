@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
             const targetSection = document.querySelector(targetId);
 
             if (targetSection) {
-                const yOffset = -80; // Adjust for fixed header on main page
+                const yOffset = -80; 
                 const y = targetSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
                 
                 window.scrollTo({ top: y, behavior: "smooth" });
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const scrollPosition = window.scrollY + 100; // adjust for navbar height
 
         sections.forEach(section => {
-            const sectionTop = section.offsetTop - 120; //  offset
+            const sectionTop = section.offsetTop - 120; 
             const sectionBottom = sectionTop + section.offsetHeight;
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
@@ -43,5 +43,5 @@ document.addEventListener("DOMContentLoaded", function () {
     // Attach the scroll event listener
     window.addEventListener("scroll", highlightActiveTab);
     navLinks[0].classList.add("experience-nav__link--selected") // by defualt activate the first nav tab
-    highlightActiveTab(); // run on page load
+    highlightActiveTab(); 
 });

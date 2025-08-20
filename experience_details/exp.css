@@ -184,20 +184,18 @@ border-left: 2px solid #fff;
     border-radius: 8px; 
 }
 
-/* New rule set for research/experience images */
+/* research/experience images in LBNL content page */
 .exp-image {
     width: 100%;
     max-width: 930px;
     display: block;
-    margin: 40px auto 60px auto; /* adjust these top/bottom values as needed */
+    margin: 40px auto 60px auto; 
     border-radius: 8px;
 }
-
-/* Responsive rule for portrait orientation */
 @media (orientation: portrait) {
     .exp-image {
         max-width: 100%;
-        margin-bottom: 40px; /* tweak separately for mobile */
+        margin-bottom: 40px; 
     }
 }
 
