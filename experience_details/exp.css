@@ -34,7 +34,7 @@ html {
 }
 /*main image under role title*/
 
-/*controls the following (Role, Skills, Timeline, Tools)*/
+/*controls the following (role, skills, timeline, tools)*/
 .categories-container {
     display: flex;
     justify-content: space-between; 
@@ -116,7 +116,7 @@ p {
 /* Left nav menu (vertical line) */
 .experience-nav {
     width: 250px;
-    padding: 1rem 1rem 1rem 1.5rem; /* Add left padding for the line */
+    padding: 1rem 1rem 1rem 1.5rem; 
     position: fixed;
     top: 150px; 
     align-self: flex-start;
@@ -128,16 +128,16 @@ p {
     font-size: 0.875rem;
     font-weight: 500;
     color: #fff; 
-    margin-bottom: 1.5rem; /* modifies space below heading */
+    margin-bottom: 1.5rem; 
     text-transform: uppercase;
-    padding-left: 0.5rem; /* align with the nav tabs */
+    padding-left: 0.5rem; 
 }
 /* tabs list */
 .experience-nav__list {
     list-style: none;
     padding: 0;
     margin: 0;
-    padding-left: 0.5rem; /* indent tabs on nav */
+    padding-left: 0.5rem; 
 }
 /* tabs links */
 .experience-nav__link {

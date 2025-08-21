@@ -15,17 +15,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
         navLinks.forEach((link, index) => {
             link.style.animation = "none";
-            link.offsetHeight; // Trigger reflow
+            link.offsetHeight; 
             link.style.animation = `fadeUp 2.0s ease-out forwards ${index * 0.1}s`;
         });
 
         horizontalLine.style.animation = "none";
-        horizontalLine.offsetHeight; // Trigger reflow
+        horizontalLine.offsetHeight; 
         horizontalLine.style.animation = "slideIn 1.4s ease forwards";
 
         footerLinks.forEach((link, index) => {
             link.style.animation = "none";
-            link.offsetHeight; // Trigger reflow
+            link.offsetHeight; 
             link.style.animation = `fadeUp 0.5s ease-out forwards ${0.5 + index * 0.1}s`;
         });
     });
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function () {
         })
     );
 
-    // Header blur effect on scroll
+    // header blur effect on scroll
     window.addEventListener("scroll", function () {
         if (window.scrollY > 50) {
             header.classList.add("blur-header");
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Intersection observer for sections
+    // intersection observer for sections
     const sections = document.querySelectorAll(".experience-item, .experience-details, .about-section, .project");
     const observerOptions = {
         root: null,
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
             item.style.opacity = "1";
             item.style.transform = "translateY(0)";
         });
-    }, 100); // Delay to allow for other animations to start
+    }, 100); // delay to allow for other animations to start
 });
 document.addEventListener("DOMContentLoaded", function() {
     const homeSection = document.querySelector('#home'); 
