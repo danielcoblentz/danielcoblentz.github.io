@@ -1036,11 +1036,7 @@ a {
         padding-top: 8px; 
     }
 
-    .section-divider {
-        left:calc(188px - 0px);
-        top: 56px;
-        width: 125px; 
-    }
+    
     /* mobile (≤480px) */
 @media (max-width: 480px) {
     .projects-section {
@@ -1052,11 +1048,7 @@ a {
       padding-left: 10px;
     }
   
-    .section-divider {
-      left: 200px;  
-      top: 18px;
-      width: 70px;
-    }
+   
   
     .projects-grid {
       grid-template-columns: 1fr;
