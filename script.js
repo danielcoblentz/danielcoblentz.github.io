@@ -132,7 +132,7 @@ function toggleExperienceVisibility(selectedId) {
 
 // automatically display the experience's details
 document.addEventListener("DOMContentLoaded", function() {
-    toggleExperienceVisibility('ML_Research_CA');  // change the first exp that users see
+    toggleExperienceVisibility('ML_Engineer_CA');  // change the first exp that users see
 });
 
 document.addEventListener("DOMContentLoaded", function() {
