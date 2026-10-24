@@ -140,10 +140,32 @@ button {
 
 /* main content header and tabs */
 
+/* content fades near the top and bottom of the screen using offsets kept in sync by the scroll fade module */
 .container {
+  --edge-fade: 72px;
+  --viewport-top: 0px;
+  --viewport-bottom: 100vh;
+  --fade-top-alpha: 1;
+  --fade-bottom-alpha: 1;
+  --edge-mask: linear-gradient(
+    to bottom,
+    rgb(0 0 0 / var(--fade-top-alpha)) var(--viewport-top),
+    #000 calc(var(--viewport-top) + var(--edge-fade)),
+    #000 calc(var(--viewport-bottom) - var(--edge-fade)),
+    rgb(0 0 0 / var(--fade-bottom-alpha)) var(--viewport-bottom)
+  );
   max-width: 720px;
   padding: var(--space-20) var(--space-6);
   margin: 0 auto;
+  -webkit-mask-image: var(--edge-mask);
+  mask-image: var(--edge-mask);
+}
+
+@media print {
+  .container {
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
 }
 
 header {
