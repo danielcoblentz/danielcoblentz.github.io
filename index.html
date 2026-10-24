@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Daniel Coblentz</title>
+    <meta
+      name="description"
+      content="Daniel Coblentz - Computer Science student at Hood College. Interests in large-scale databases, generative AI, and user experience."
+    />
+    <meta name="author" content="Daniel Coblentz" />
+    <meta name="theme-color" content="#fcfcfd" />
+    <link rel="canonical" href="https://danielcoblentz.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://danielcoblentz.github.io/" />
+    <meta property="og:title" content="Daniel Coblentz" />
+    <meta property="og:description" content="Computer Science @ Hood College. Interests in large-scale databases, generative AI, and user experience." />
+    <meta property="og:site_name" content="Daniel Coblentz" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="icon" href="favicon.png" sizes="32x32" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <!-- applies the saved or system theme before first paint so the page never flashes the wrong theme -->
+    <script>
+      (() => {
+        let stored = null;
+        try {
+          stored = localStorage.getItem('theme');
+        } catch {}
+        document.documentElement.dataset.theme = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      })();
+    </script>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="modulepreload" href="assets/js/main.js" />
+    <link rel="modulepreload" href="assets/js/tabs.js" />
+    <link rel="modulepreload" href="assets/js/timeline.js" />
+    <link rel="modulepreload" href="assets/js/theme.js" />
+    <link rel="modulepreload" href="assets/js/background/index.js" />
+    <link rel="modulepreload" href="assets/js/background/scene.js" />
+    <link rel="modulepreload" href="assets/js/background/math.js" />
+    <link rel="modulepreload" href="assets/js/background/noise.js" />
+    <link rel="modulepreload" href="assets/js/background/geometry.js" />
+    <link rel="modulepreload" href="assets/js/background/content-column.js" />
+    <link rel="modulepreload" href="assets/js/background/patterns/mesh.js" />
+    <link rel="modulepreload" href="assets/js/background/patterns/topo.js" />
+    <link rel="modulepreload" href="assets/js/background/patterns/grid.js" />
+    <script type="module" src="assets/js/main.js"></script>
+  </head>
+  <body>
+    <canvas id="background" aria-hidden="true"></canvas>
+
+    <nav class="display-controls" aria-label="Display controls">
+      <span class="display-controls-item">
+        <button type="button" class="pattern-button active" data-pattern="mesh" aria-pressed="true" aria-label="Set background to mesh">mesh</button>
+      </span>
+      <span class="display-controls-item">
+        <span class="display-controls-separator" aria-hidden="true">/</span>
+        <button type="button" class="pattern-button" data-pattern="topo" aria-pressed="false" aria-label="Set background to topo">topo</button>
+      </span>
+      <span class="display-controls-item">
+        <span class="display-controls-separator" aria-hidden="true">/</span>
+        <button type="button" class="pattern-button" data-pattern="grid" aria-pressed="false" aria-label="Set background to grid">grid</button>
+      </span>
+      <span class="display-controls-item">
+        <span class="display-controls-separator" aria-hidden="true">/</span>
+        <button type="button" class="pattern-button" data-pattern="none" aria-pressed="false" aria-label="Set background to none">none</button>
+      </span>
+      <button type="button" class="play-button" aria-pressed="false" aria-label="Play animation">play</button>
+      <button type="button" class="theme-button" aria-label="Switch to dark theme">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.5" />
+          <path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor" />
+        </svg>
+      </button>
+    </nav>
+
+    <div class="container">
+      <header>
+        <h1>Daniel Coblentz</h1>
+        <p class="subtitle">Computer Science @ Hood College</p>
+      </header>
+
+      <nav class="tabs" aria-label="Main navigation">
+        <button type="button" class="tab active" data-tab="overview" aria-current="page">Overview</button>
+        <span class="tabs-separator" aria-hidden="true">/</span>
+        <button type="button" class="tab" data-tab="experience">Experience</button>
+        <span class="tabs-separator" aria-hidden="true">/</span>
+        <button type="button" class="tab" data-tab="projects">Projects</button>
+      </nav>
+
+      <main class="tab-content">
+        <section class="overview" data-panel="overview">
+          <p>
+            Hey! I'm a 3rd year CS undergrad at Hood College. I'm broadly interested in computer systems and theory - right now, I'm spending the most time on
+            C++, microarchitecture, distributed systems, and compilers. If you've got good resources or interesting projects, I'd love to talk.
+          </p>
+          <p>
+            This summer, I'll be joining
+            <a href="https://www.lbl.gov/" target="_blank" rel="noopener noreferrer" class="inline-link">Berkeley Lab</a>
+            as an ML intern in the Applied Mathematics and Computational Research Division, working on multimodal representation learning. Later, in the Fall,
+            I'll be returning to work on a different project focusing on temporal NLP.
+          </p>
+          <p>
+            Outside of all that, I'm reading novels and manga (currently working through
+            <a href="https://www.gutenberg.org/ebooks/1184" target="_blank" rel="noopener noreferrer" class="inline-link">The Count of Monte Cristo</a>), going
+            down rabbit holes (usually pure math, competitive programming solutions, or engineering textbooks), watching movies, trying new restaurants,
+            occasionally visiting California, and planning some trips to NYC.
+          </p>
+        </section>
+
+        <div data-panel="experience" hidden>
+          <section>
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>Incoming Software Engineer</h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Software Engineer · Full-time</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Starting 2026</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <ul>
+                  <li>Interesting stuff</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://www.lbl.gov/" target="_blank" rel="noopener noreferrer" class="inline-link">Berkeley Lab</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Machine Learning Intern (Part-time)</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Aug 2025 - May 2026</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <p class="timeline-note">(Applied Mathematics &amp; Computational Research Division)</p>
+                <ul>
+                  <li>
+                    Researched Temporal NLP for Clinical Phenotyping, extracting structured timelines from unstructured clinical notes to support downstream ML
+                    tasks
+                  </li>
+                  <li>
+                    Pretrained CLIP (Contrastive Language-Image Pretraining) models in PyTorch to align medical imaging and clinical text representations for
+                    multimodal learning
+                  </li>
+                  <li>Built a React dashboard with Flask REST APIs featuring interactive visualizations and model comparison to present results</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://www.lbl.gov/" target="_blank" rel="noopener noreferrer" class="inline-link">Berkeley Lab</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Machine Learning Intern</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Jun 2025 - Aug 2025</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <p class="timeline-note">(Applied Mathematics &amp; Computational Research Division)</p>
+                <ul>
+                  <li>Designed multimodal ML pipelines using TabNet and ClinicalBERT to classify high-risk medical cohorts with 90% ROC-AUC</li>
+                  <li>Architected Python ETL pipelines to transform 80k+ medical records into numerical embeddings for scalable model training</li>
+                  <li>Improved Random Forest and Logistic Regression performance via feature engineering, raising accuracy from 80% to 89%</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://www.hood.edu/" target="_blank" rel="noopener noreferrer" class="inline-link">Hood College</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Machine Learning Researcher</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Jan 2025 - Sep 2025</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <p class="timeline-note">(Quantization for Edge AI)</p>
+                <ul>
+                  <li>Implemented nonuniform quantization in PyTorch, cutting model size by 20% while maintaining precision for edge deployment</li>
+                  <li>Fine-tuned neural networks (ResNet-50), achieving a 19% improvement in Top-5 accuracy compared to uniform quantization</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://www.hood.edu/" target="_blank" rel="noopener noreferrer" class="inline-link">Hood College</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Teaching Assistant</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Aug 2024 - May 2025</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <p class="timeline-note">
+                  CS 319: Algorithm Analysis (Spring 2025)<br />CS 219: Advanced Algorithms (Spring 2025)<br />CS 201: Object-Oriented Programming I &amp; II
+                  (Fall 2024)<br />MATH 207: Discrete Mathematics (Fall 2024)
+                </p>
+                <ul>
+                  <li>Instructed 60+ students in Data Structures &amp; Algorithms and Python, Java, and JavaScript through lectures and lab sessions</li>
+                  <li>Led algorithmic problem-solving sessions, performed regular code reviews, and received consistent 5/5 ratings from students</li>
+                  <li>Developed curriculum and ensured student understanding of data structures and algorithms, raising exam scores by 15%</li>
+                  <li>Led discussion sections and office hours on classes, recursion, and memory management</li>
+                  <li>Provided project feedback and helped students strengthen coding fundamentals</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>Celebrations Catering</h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Software Engineer (Contract)</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Sep 2024 - May 2025</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <ul>
+                  <li>Built a full-stack workflow editor in React and Java for employee management tasks, cutting manager process time by 50%</li>
+                  <li>
+                    Developed 15+ Spring Boot REST APIs for employee record management, integrating Hibernate ORM for data persistence and JUnit for
+                    comprehensive testing, achieving 95% code coverage and reducing data entry errors by 35%
+                  </li>
+                  <li>Automated email notifications with JavaMail and Spring Scheduler, reducing manual communication overhead by 70%</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://intnlhelp.org/" target="_blank" rel="noopener noreferrer" class="inline-link">International HELP</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Web Development Intern</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">May 2024 - Aug 2024</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <p class="timeline-note">(Data Analytics Team)</p>
+                <ul>
+                  <li>Built a Python, HTML, and Tailwind CSS dashboard showing geospatial maps of health worker deployments and key metrics</li>
+                  <li>Integrated Google Data Studio for real-time data querying and automated metric updates across partner regions</li>
+                  <li>Optimized SQL queries by indexing key columns and refactoring joins, improving dashboard response times by 35%</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h2>Education</h2>
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://www.hood.edu/" target="_blank" rel="noopener noreferrer" class="inline-link">Hood College</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">B.S. Computer Science, Minor in Mathematics | GPA: 3.85 | Department GPA: 3.98</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Aug 2023 - Jun 2026</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <ul>
+                  <li>
+                    Selected Coursework: Probability Theory, Linear Algebra, Data Structures &amp; Algorithms, Databases, Software Engineering, Data
+                    Communications and Networking
+                  </li>
+                  <li>
+                    Awards: Magna Cum Laude, Gillard Prize (CS Outstanding Student), Pi Mu Epsilon, Volpe Scholar, Christine P. Tischer Scholar (top 2%),
+                    Trailblazer Scholarship, UPE (CS Honor Society, top 5%), CCSC Eastern 3rd Place, Dean's List (all semesters)
+                  </li>
+                  <li>Activities: Competitive Programming, CS Club, Math Club, UPE, LLM Research</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="timeline-item">
+              <div class="timeline-header" role="button" tabindex="0" aria-expanded="false">
+                <div class="timeline-content">
+                  <h3>
+                    <a href="https://www.frederick.edu/" target="_blank" rel="noopener noreferrer" class="inline-link">Frederick Community College</a>
+                  </h3>
+                  <div class="timeline-meta">
+                    <p class="timeline-role">Associate's Degree, General Studies</p>
+                    <div class="timeline-period-group">
+                      <span class="timeline-meta-separator">•</span>
+                      <span class="timeline-period">Aug 2021 - May 2023</span>
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-chevron" aria-hidden="true">▼</span>
+              </div>
+              <div class="timeline-details" hidden>
+                <ul>
+                  <li>
+                    Selected Coursework: Game Theory &amp; Design, Introduction to Programming, Object-Oriented Design &amp; Programming, College Algebra,
+                    Statistics, Precalculus, General Chemistry I
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <section data-panel="projects" hidden>
+          <p class="coming-soon">Coming soon...</p>
+          <!--
+          <div class="project-grid">
+            <a href="" target="_blank" rel="noopener noreferrer" class="project-item">
+              <div class="project-item-header">
+                <h3></h3>
+              </div>
+              <p class="project-tech"></p>
+              <ul>
+                <li></li>
+              </ul>
+            </a>
+          </div>
+          -->
+        </section>
+      </main>
+
+      <footer>
+        <div class="footer-links">
+          <a href="mailto:danielcoblentz3@gmail.com">email</a>
+          <span>/</span>
+          <a href="https://www.linkedin.com/in/danielcoblentz/" target="_blank" rel="noopener noreferrer">linkedin</a>
+          <span>/</span>
+          <a href="https://github.com/danielcoblentz" target="_blank" rel="noopener noreferrer">github</a>
+        </div>
+        <p class="footer-updated">updated oct 2026</p>
+      </footer>
+    </div>
+  </body>
+</html>
