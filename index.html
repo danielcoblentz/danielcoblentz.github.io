@@ -38,6 +38,7 @@
     <link rel="modulepreload" href="assets/js/timeline.js" />
     <link rel="modulepreload" href="assets/js/theme.js" />
     <link rel="modulepreload" href="assets/js/scroll-fade.js" />
+    <link rel="modulepreload" href="assets/js/dock.js" />
     <link rel="modulepreload" href="assets/js/background/index.js" />
     <link rel="modulepreload" href="assets/js/background/scene.js" />
     <link rel="modulepreload" href="assets/js/background/math.js" />
@@ -53,21 +54,10 @@
     <canvas id="background" aria-hidden="true"></canvas>
 
     <nav class="display-controls" aria-label="Display controls">
-      <span class="display-controls-item">
-        <button type="button" class="pattern-button active" data-pattern="mesh" aria-pressed="true" aria-label="Set background to mesh">mesh</button>
-      </span>
-      <span class="display-controls-item">
-        <span class="display-controls-separator" aria-hidden="true">/</span>
-        <button type="button" class="pattern-button" data-pattern="topo" aria-pressed="false" aria-label="Set background to topo">topo</button>
-      </span>
-      <span class="display-controls-item">
-        <span class="display-controls-separator" aria-hidden="true">/</span>
-        <button type="button" class="pattern-button" data-pattern="grid" aria-pressed="false" aria-label="Set background to grid">grid</button>
-      </span>
-      <span class="display-controls-item">
-        <span class="display-controls-separator" aria-hidden="true">/</span>
-        <button type="button" class="pattern-button" data-pattern="none" aria-pressed="false" aria-label="Set background to none">none</button>
-      </span>
+      <button type="button" class="pattern-button active" data-pattern="mesh" aria-pressed="true" aria-label="Set background to mesh">mesh</button>
+      <button type="button" class="pattern-button" data-pattern="topo" aria-pressed="false" aria-label="Set background to topo">topo</button>
+      <button type="button" class="pattern-button" data-pattern="grid" aria-pressed="false" aria-label="Set background to grid">grid</button>
+      <button type="button" class="pattern-button" data-pattern="none" aria-pressed="false" aria-label="Set background to none">none</button>
       <button type="button" class="play-button" aria-pressed="false" aria-label="Play animation">play</button>
       <button type="button" class="theme-button" aria-label="Switch to dark theme">
         <svg viewBox="0 0 16 16" aria-hidden="true">
